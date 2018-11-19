@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Star Wars</string>
+    <string name="title_main_activity">Star Wars People</string>
+
+
+    <string name="title_activity_details">Detalhes</string>
+    <string name="menu_sobre">Sobre</string>
+    <string name="details_genero_label">Género:</string>
+    <string name="details_planeta_natal_label">Planeta Natal:</string>
+    <string name="details_cor_da_pele_label">Cor da pele:</string>
+    <string name="details_content_description_genero_icon">género</string>
+</resources>

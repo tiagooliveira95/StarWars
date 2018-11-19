@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="rc_card_corner_radius">4dp</dimen>
+    <dimen name="rc_card_elevation">4dp</dimen>
+</resources>

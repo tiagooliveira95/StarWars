@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_details"
+        tools:context=".ui.activities.DetailsActivity">
+
+
+    <TextView
+            android:id="@+id/details_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            tools:text="Darth Vader" />
+
+    <TextView
+            android:id="@+id/cor_pele_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/details_cor_da_pele_label"
+            app:layout_constraintStart_toStartOf="@+id/details_name"
+            app:layout_constraintTop_toBottomOf="@+id/details_name" />
+
+    <com.smartguygoescrazy.starwars.ui.views.SkinColorView
+            android:id="@+id/skinColorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cor_pele_label"
+            app:layout_constraintStart_toEndOf="@+id/cor_pele_label"
+            app:layout_constraintTop_toTopOf="@+id/cor_pele_label" />
+
+    <TextView
+            android:id="@+id/genero_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/details_genero_label"
+            app:layout_constraintStart_toStartOf="@+id/cor_pele_label"
+            app:layout_constraintTop_toBottomOf="@+id/cor_pele_label" />
+
+    <ImageView
+            android:id="@+id/gender_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:contentDescription="@string/details_content_description_genero_icon"
+            app:layout_constraintStart_toEndOf="@+id/genero_label"
+            app:layout_constraintBottom_toBottomOf="@id/genero_label"
+            tools:layout_editor_absoluteY="99dp"
+            tools:srcCompat="@drawable/ic_male" />
+
+    <TextView
+            android:id="@+id/planeta_natal_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/details_planeta_natal_label"
+            app:layout_constraintStart_toStartOf="@+id/genero_label"
+            app:layout_constraintTop_toBottomOf="@+id/gender_icon" />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/vehicle_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/planeta_natal_label"
+            tools:listitem="@layout/vehicles_item" />
+
+    <ProgressBar
+            android:indeterminate="true"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+</android.support.constraint.ConstraintLayout>
