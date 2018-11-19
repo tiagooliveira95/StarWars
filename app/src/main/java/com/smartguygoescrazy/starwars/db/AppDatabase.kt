@@ -4,6 +4,7 @@ import android.arch.persistence.room.*
 import android.content.Context
 import com.smartguygoescrazy.starwars.db.dao.PeopleDao
 import com.smartguygoescrazy.starwars.db.dao.PlanetDao
+import com.smartguygoescrazy.starwars.db.dao.SpeciesDao
 import com.smartguygoescrazy.starwars.db.dao.VehicleDao
 import com.smartguygoescrazy.starwars.models.*
 
@@ -20,6 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun peopleDao() : PeopleDao
     abstract fun planetDao() : PlanetDao
     abstract fun vehicleDao(): VehicleDao
+    abstract fun speciesDao() : SpeciesDao
 
     companion object {
         private var INSTANCE: AppDatabase? = null

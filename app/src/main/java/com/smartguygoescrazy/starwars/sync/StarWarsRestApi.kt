@@ -4,7 +4,6 @@ import com.smartguygoescrazy.starwars.models.StarWarsPeople
 import com.smartguygoescrazy.starwars.models.StarWarsPlanet
 import com.smartguygoescrazy.starwars.models.StarWarsSpecies
 import com.smartguygoescrazy.starwars.models.StarWarsVehicles
-import com.smartguygoescrazy.starwars.sync.StarWarsApiService.Companion.SPECIES_PATH
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -39,7 +38,7 @@ interface StarWarsApiService {
         const val PEOPLE_PATH = "people"
         const val PLANET_PATH = "planets"
         const val VEHICLES_PATH = "vehicles"
-        const val SPECIES_PATH = "vehicles"
+        const val SPECIES_PATH = "species"
 
         fun create(): StarWarsApiService {
             val retrofit = Retrofit.Builder()

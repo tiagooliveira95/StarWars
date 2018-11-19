@@ -15,7 +15,6 @@ class AppExecutors private constructor(
 
         private val LOCK = Any()
         private var sInstance: AppExecutors? = null
-
         val instance: AppExecutors?
             get() {
                 if (sInstance == null) {

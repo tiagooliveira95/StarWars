@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.content_vehicles_item.view.*
 class VehiclesAdapter(private val context : Context?) :
     RecyclerView.Adapter<VehiclesAdapter.ViewHolder>() {
 
-    var items : ArrayList<StarWarsVehicles> = arrayListOf()
+    private var items : ArrayList<StarWarsVehicles> = arrayListOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
@@ -31,11 +31,6 @@ class VehiclesAdapter(private val context : Context?) :
         holder.vehicleClass.text = data.vehicle_class.capitalize()
     }
 
-
-    fun addItems (newItems : List<StarWarsVehicles>) {
-        items.addAll(newItems)
-        notifyDataSetChanged()
-    }
 
     fun addItems (newItem : StarWarsVehicles) {
         items.add(newItem)

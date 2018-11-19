@@ -10,7 +10,7 @@ import com.smartguygoescrazy.starwars.models.StarWarsPlanet
 interface PlanetDao {
 
     @Query("SELECT * FROM StarWarsPlanet WHERE id = :planetId")
-    fun getPlanet(planetId: Int): List<StarWarsPlanet>
+    fun getAllPlanets(planetId: Int): List<StarWarsPlanet>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun  insertPeople(starWarsPlanet: StarWarsPlanet)

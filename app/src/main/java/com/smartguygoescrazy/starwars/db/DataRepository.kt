@@ -4,8 +4,10 @@ import android.app.Application
 import com.smartguygoescrazy.starwars.AppExecutors
 import com.smartguygoescrazy.starwars.db.dao.PeopleDao
 import com.smartguygoescrazy.starwars.db.dao.PlanetDao
+import com.smartguygoescrazy.starwars.db.dao.SpeciesDao
 import com.smartguygoescrazy.starwars.db.dao.VehicleDao
 import com.smartguygoescrazy.starwars.models.StarWarsPeopleData
+import com.smartguygoescrazy.starwars.models.StarWarsSpeciesData
 import com.smartguygoescrazy.starwars.models.StarWarsVehicles
 
 class DataRepository(application: Application){
@@ -15,6 +17,7 @@ class DataRepository(application: Application){
     private var peopleDao : PeopleDao = appDatabase.peopleDao()
     private var planetDao : PlanetDao = appDatabase.planetDao()
     private var vehicleDao: VehicleDao = appDatabase.vehicleDao()
+    private var speciesDao : SpeciesDao = appDatabase.speciesDao()
 
 
     fun insertVehicle(starWarsVehicles: StarWarsVehicles){
@@ -26,6 +29,12 @@ class DataRepository(application: Application){
     fun insertPeople(starWarsPeopleData: List<StarWarsPeopleData>){
         AppExecutors.instance!!.diskIO().execute {
             peopleDao.insertPeople(starWarsPeopleData)
+        }
+    }
+
+    fun insertSpecie(starWarsSpeciesData: List<StarWarsSpeciesData>){
+        AppExecutors.instance!!.diskIO().execute {
+            speciesDao.insertSpecies(starWarsSpeciesData)
         }
     }
 

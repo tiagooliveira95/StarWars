@@ -1,12 +1,19 @@
 <resources>
     <string name="app_name">Star Wars</string>
     <string name="title_main_activity">Star Wars People</string>
-
-
     <string name="title_activity_details">Detalhes</string>
     <string name="menu_sobre">Sobre</string>
     <string name="details_genero_label">Género:</string>
     <string name="details_planeta_natal_label">Planeta Natal:</string>
     <string name="details_cor_da_pele_label">Cor da pele:</string>
     <string name="details_content_description_genero_icon">género</string>
+    <string name="details_veiculos_list_label">Veículos</string>
+    <string name="developer_name">Tiago Oliveira</string>
+    <string name="birth_day_developer">25/06/1995</string>
+    <string name="about_anos_label">Anos</string>
+    <string name="activity_sobre_label">Sobre</string>
+    <string name="details_menu_action_procurar">Procurar</string>
+    <string name="no_browser_error_message">Não existe nenhum navegador de internet instado</string>
+    <string name="vehicle_empy_list_error">Esta personagem não tem veículos</string>
+
 </resources>

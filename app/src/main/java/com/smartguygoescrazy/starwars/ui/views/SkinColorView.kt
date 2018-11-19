@@ -97,7 +97,7 @@ class SkinColorView : View {
 
     private fun getColorFromString(color: String) : Int{
         return when(color){
-            "fair" -> Color.parseColor("#F6C2B4")
+            "fair" -> Color.parseColor("#FFE0BD")
             "gold" -> Color.parseColor("#DAA520")
             "white" -> Color.WHITE
             "blue" -> Color.parseColor("#1E90FF")

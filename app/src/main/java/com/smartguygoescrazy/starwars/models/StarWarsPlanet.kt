@@ -3,13 +3,13 @@ package com.smartguygoescrazy.starwars.models
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import android.net.Uri
 
 @Entity
 data class StarWarsPlanet(
     @ColumnInfo val name: String,
     val url: String,
-    @PrimaryKey(autoGenerate = false) val id: Int = Uri.parse(url).lastPathSegment!!.toInt()
+    @PrimaryKey(autoGenerate = false) val id : Int
+
 
 
 /*

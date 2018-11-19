@@ -10,7 +10,6 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.smartguygoescrazy.starwars.R
 import com.smartguygoescrazy.starwars.adapters.VehiclesAdapter
-import com.smartguygoescrazy.starwars.db.AppDatabase
 import com.smartguygoescrazy.starwars.models.StarWarsPeopleData
 import com.smartguygoescrazy.starwars.models.StarWarsPlanet
 import com.smartguygoescrazy.starwars.models.StarWarsVehicles
@@ -21,6 +20,12 @@ import io.reactivex.schedulers.Schedulers
 
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.content_details.*
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuItem
+import com.smartguygoescrazy.starwars.InternetCheck
+import java.net.URLEncoder
+
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -63,16 +68,24 @@ class DetailsActivity : AppCompatActivity() {
         vehicle_list.adapter = mAdapter
 
 
-        beginStarWarsVehicleRequest(starWarsPeople!!.vehicles)
 
-        beginStarWarsPlanetRequest(Uri.parse(starWarsPeople!!.homeworld).lastPathSegment!!.toInt())
+        InternetCheck { isConnected ->
+            if (isConnected) {
+                beginStarWarsVehicleRequest(starWarsPeople!!.vehicles)
+                beginStarWarsPlanetRequest(Uri.parse(starWarsPeople!!.homeworld).lastPathSegment!!.toInt())
+            }else{
+                Toast.makeText(this,"Internet not available", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.INVISIBLE
+                //TODO Carregar informações da base de dados
+            }
+        }
     }
 
 
 
     private fun beginStarWarsVehicleRequest(vehiclesUrls : List<String>, i: Int = 0){
         if(vehiclesUrls.isEmpty()) {
-            //showEmptyListMessage()
+            showEmptyListMessage()
             return
         }
 
@@ -98,7 +111,9 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun showEmptyListMessage() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        vehicle_empty_list_error.visibility = View.VISIBLE
+        vehicle_list.visibility = View.INVISIBLE
+
     }
 
     private fun beginStarWarsPlanetRequest(planetId : Int){
@@ -126,6 +141,32 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun setProgressBarVisibility(){
         progressBar.visibility = if(mPlanetLoading && mVehicleLoading) View.VISIBLE else View.INVISIBLE
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_details,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if(item?.itemId == R.id.action_search){
+            googleSearch(starWarsPeople!!.name)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun googleSearch(name: String){
+        val query = URLEncoder.encode(name, "utf-8")
+        val url = "http://www.google.com/search?q=$query"
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+
+        if(intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }else{
+            Toast.makeText(this,getString(R.string.no_browser_error_message), Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

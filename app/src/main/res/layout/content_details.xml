@@ -20,7 +20,9 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progressBar"
-            tools:text="Darth Vader" />
+            tools:text="Darth Vader"
+    />
+
 
     <TextView
             android:id="@+id/cor_pele_label"
@@ -60,7 +62,8 @@
             app:layout_constraintStart_toEndOf="@+id/genero_label"
             app:layout_constraintBottom_toBottomOf="@id/genero_label"
             tools:layout_editor_absoluteY="99dp"
-            tools:srcCompat="@drawable/ic_male" />
+            tools:srcCompat="@drawable/ic_genderless" />
+
 
     <TextView
             android:id="@+id/planeta_natal_label"
@@ -77,15 +80,16 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/planeta_natal_label"
-            tools:listitem="@layout/vehicles_item" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:listitem="@layout/vehicles_item"
+            android:layout_marginTop="16dp"/>
+
 
     <ProgressBar
             android:indeterminate="true"
@@ -97,4 +101,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+    <TextView
+            android:text="@string/details_veiculos_list_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/planeta_natal_label" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginTop="16dp"/>
+
+    <TextView
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:id="@+id/vehicle_empty_list_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/vehicle_empy_list_error"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/vehicle_list" />
+
 </android.support.constraint.ConstraintLayout>
